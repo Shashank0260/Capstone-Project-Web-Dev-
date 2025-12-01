@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DreamSpace Reality – Luxury Real Estate</title>
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Poppins", sans-serif;
+}
+body{
+  background:#f5f6fa;
+  color:#333;
+}
+nav{
+  background:linear-gradient(to right, #0b1b36, #0f2a52);
+  padding:20px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  color:white;
+  box-shadow:0 3px 12px rgba(0,0,0,0.4);
+}
+nav .logo{
+  font-size:28px;
+  font-weight:700;
+  letter-spacing:1px;
+  color:#f6c85f;
+}
+nav a{
+  color:#f1f1f1;
+  margin-left:30px;
+  text-decoration:none;
+  font-size:16px;
+  font-weight:500;
+  transition:0.3s;
+}
+nav a:hover{
+  color:#f6c85f;
+}
+.hero{
+  position:relative;
+  background:url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1500&q=80") center/cover no-repeat;
+  padding:150px 40px;
+  color:white;
+  text-align:center;
+  animation:bgZoom 18s ease-in-out infinite alternate;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+}
+.hero h1, .hero p{
+  position:relative;
+  opacity:0;
+  animation:fadeUp 1.4s ease forwards;
+}
+.hero h1{
+  font-size:56px;
+  font-weight:700;
+}
+.hero p{
+  font-size:20px;
+  animation-delay:.3s;
+}
+@keyframes bgZoom{
+  from{ transform:scale(1); }
+  to{ transform:scale(1.07); }
+}
+@keyframes fadeUp{
+  from{ opacity:0; transform:translateY(30px); }
+  to{ opacity:1; transform:translateY(0); }
+}
+.section-title{
+  font-size:34px;
+  margin-bottom:30px;
+  color:#0f2a52;
+  text-align:center;
+}
+.why{
+  width:90%;
+  margin:50px auto;
+}
+.why-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+.why-card{
+  background:white;
+  border-radius:12px;
+  padding:25px;
+  box-shadow:0 6px 20px rgba(0,0,0,0.12);
+  transition:.35s;
+}
+.why-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.18);
+}
+.advantages{
+  background:white;
+  padding:60px 0;
+}
+.adv-grid{
+  width:90%;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:25px;
+}
+.adv-card{
+  background:#fdf7e6;
+  border-left:6px solid #f6c85f;
+  padding:25px;
+  border-radius:10px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.12);
+  transition:.35s;
+}
+.adv-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 12px 25px rgba(0,0,0,0.18);
+}
+.property-list{
+  width:80%;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  gap:40px;
+  margin-bottom:60px;
+}
+.card{
+  background:white;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 4px 15px rgba(0,0,0,0.1);
+  transition:.35s;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 12px 22px rgba(0,0,0,0.18);
+}
+.card img{
+  width:70%;
+  height:264px; 
+  object-fit:cover;
+  border-radius:12px 12px 0 0;
+}
+.card-content{
+  padding:18px;
+  text-align:center;
+}
+.card-content h3{
+  color:#0f2a52;
+  margin-bottom:10px;
+}
+.price{
+  color:#f6c85f;
+  font-size:20px;
+  font-weight:600;
+  margin-bottom:10px;
+}
+.agent-area{
+  background:#ffffff;
+  padding:50px 0;
+}
+.agent-grid{
+  width:90%;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+.agent-card{
+  background:#eef2ff;
+  padding:25px;
+  text-align:center;
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.12);
+  transition:.35s;
+}
+.agent-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 12px 22px rgba(0,0,0,0.18);
+}
+.agent-card img{
+  width:105px;
+  height:105px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-bottom:10px;
+}
+.agent-card h3{
+  color:#0f2a52;
+}
+.agent-card p{
+  margin-top:5px;
+  font-size:14px;
+}
+.reviews{
+  padding:60px 0;
+}
+.review-grid{
+  width:90%;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+  gap:25px;
+}
+.review-card{
+  background:white;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 4px 18px rgba(0,0,0,0.1);
+  font-size:15px;
+  transition:.35s;
+}
+.review-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 12px 22px rgba(0,0,0,0.18);
+}
+.review-card h4{
+  margin-top:15px;
+  color:#0f2a52;
+  font-weight:600;
+}
+.contact{
+  background:white;
+  padding:60px 0;
+}
+.contact-form{
+  width:90%;
+  max-width:600px;
+  margin:auto;
+  background:#eef3ff;
+  padding:30px;
+  border-radius:12px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.12);
+}
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid #bbb;
+  margin-top:12px;
+  font-size:15px;
+}
+.contact-form button{
+  width:100%;
+  margin-top:20px;
+  padding:15px;
+  background:#0f2a52;
+  color:white;
+  font-size:17px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+}
+.contact-form button:hover{
+  background:#0b1b36;
+}
+footer{
+  margin-top:40px;
+  background:#0b1b36;
+  padding:20px;
+  text-align:center;
+  color:white;
+  font-size:15px;
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo">DreamSpace Reality</div>
+  <div>
+    <a href="#">Home</a>
+    <a href="#properties">Properties</a>
+    <a href="#advantages">Advantages</a>
+    <a href="#agents">Agents</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+<section class="hero">
+  <h1>Your Trusted Real Estate Partner</h1>
+  <p>Helping families find their dream homes for over 15 years.</p>
+</section>
+<section class="why">
+  <h2 class="section-title">Why Choose DreamSpace Reality?</h2>
+  <div class="why-grid">
+    <div class="why-card">
+      <h3>✔ 10,000+ Happy Clients</h3>
+      <p>We’ve helped thousands of families find perfect homes in trusted neighborhoods.</p>
+    </div>
+    <div class="why-card">
+      <h3>✔ Verified Premium Listings</h3>
+      <p>Every home is verified, legally checked, and personally reviewed before listing.</p>
+    </div>
+    <div class="why-card">
+      <h3>✔ Expert Local Agents</h3>
+      <p>Our professional agents know the market better than anyone.</p>
+    </div>
+  </div>
+</section>
+<section class="advantages" id="advantages">
+  <h2 class="section-title">Why Our Houses Stand Out</h2>
+  <div class="adv-grid">
+    <div class="adv-card">
+      <h3>🏡 Modern Architecture</h3>
+      <p>Contemporary designs built with premium materials ensuring elegance & durability.</p>
+    </div>
+    <div class="adv-card">
+      <h3>🌳 Prime Neighborhoods</h3>
+      <p>Clean, peaceful, and secure areas with top-rated schools and facilities.</p>
+    </div>
+    <div class="adv-card">
+      <h3>💡 Energy-Efficient Homes</h3>
+      <p>Smart lighting, solar support, and low energy consumption systems included.</p>
+    </div>
+    <div class="adv-card">
+      <h3>🔒 Secured Community</h3>
+      <p>Gated communities, CCTV monitoring & 24/7 security for peace of mind.</p>
+    </div>
+  </div>
+</section>
+<h2 class="section-title" id="properties">Featured Luxury Properties</h2>
+<div class="property-list">
+  <div class="card">
+    <img src="https://cdn.houseplansservices.com/content/t4nittq8jgifqkfgeghr5hmtqm/w991x660.jpg?v=9">
+    <div class="card-content">
+      <h3>Modern Family House</h3>
+      <div class="price">₹9,020,000</div>
+      <p>Los Angeles, CA</p>
+      <p>Spacious 4-bedroom house with garden and garage in a quiet neighborhood.</p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="https://www.propertyfinder.ae/property/e9b83f5f6d1b78d903dd3fba7f5a2eca/1312/894/MODE/dc94f9/14794024-2672eo.jpg?ctr=ae">
+    <div class="card-content">
+      <h3>Beachside Villa</h3>
+      <div class="price">₹12,850,000</div>
+      <p>Miami, FL</p>
+      <p>Luxury villa with private pool, ocean view, and modern interiors.</p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="https://www.dfwurbanrealty.com/uploads/dallas-fort-worth-tx-highrise-condos-apartments.webp">
+    <div class="card-content">
+      <h3>Luxury High-Rise Condo</h3>
+      <div class="price">₹71,250,000</div>
+      <p>New York, NY</p>
+      <p>Modern condo with skyline view, 3 bedrooms, and concierge services.</p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="https://onekindesign.com/wp-content/uploads/2016/11/Contemporary-Mountain-Retreat-Berglund-Architects-01-1-Kindesign.jpg">
+    <div class="card-content">
+      <h3>Mountain Retreat Villa</h3>
+      <div class="price">₹66,000,000</div>
+      <p>Denver, CO</p>
+      <p>Secluded villa with stunning mountain views, fireplace, and hiking access.</p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="https://www.mgaarchitects.com/wp-content/uploads/2021/01/2017_09_20-HW-22024XX.jpg">
+    <div class="card-content">
+      <h3>Lakeside Modern House</h3>
+      <div class="price">₹9,080,000</div>
+      <p>Orlando, FL</p>
+      <p>Modern home by the lake with 4 bedrooms, large deck, and private dock.</p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwuC3Nz6E9pJfUCLobpbdHlXtiLZHKG0g-dA&s">
+    <div class="card-content">
+      <h3>Urban Luxury Villa</h3>
+      <div class="price">₹11,000,000</div>
+      <p>San Francisco, CA</p>
+      <p>Spacious villa in city center with rooftop terrace, gym, and modern kitchen.</p>
+    </div>
+  </div>
+</div>
+<section class="agent-area" id="agents">
+  <h2 class="section-title">Meet Our Trusted Agents</h2>
+  <div class="agent-grid">
+    <div class="agent-card">
+      <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGF2YXRhcnxlbnwwfHwwfHx8MA%3D%3D">
+      <h3>Noah</h3>
+      <p><strong>Luxury Specialist • 12+ Years Experience</strong></p>
+      <p>Noah is known for honesty, negotiation skills, and premium home expertise.</p>
+    </div>
+    <div class="agent-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq1SPqGq4M09UtA_TpZQg2WWDDVUR2KwPLNdtj7xEYn_GnQMW7PjWViuNQ_SxVs8C_b0k&usqp=CAU">
+      <h3>David Smith</h3>
+      <p><strong>Investment Expert • 15+ Years Experience</strong></p>
+      <p>David specializes in commercial & high-value real estate deals.</p>
+    </div>
+    <div class="agent-card">
+      <img src="https://img.freepik.com/premium-photo/portrait-with-copy-space-caucasian-girl-smiling-camera-outdoors_475667-1220.jpg">
+      <h3>Emma Johnson</h3>
+      <p><strong>Family Homes Specialist • 8+ Years Experience</strong></p>
+      <p>Loved for her friendly approach, transparency, and client care.</p>
+    </div>
+  </div>
+</section>
+<section class="reviews">
+  <h2 class="section-title">What Our Clients Say</h2>
+  <div class="review-grid">
+    <div class="review-card">
+      “DreamSpace Reality made our first home purchase smooth and stress-free.”
+      <h4>- Karen Mitchell</h4>
+    </div>
+    <div class="review-card">
+      “David helped me secure a perfect investment property. Highly trusted!”
+      <h4>- Michael</h4>
+    </div>
+    <div class="review-card">
+      “Emma guided me throughout the rental process. Super friendly and helpful.”
+      <h4>- Shreya</h4>
+    </div>
+  </div>
+</section>
+<section class="contact" id="contact">
+  <h2 class="section-title">Contact Us</h2>
+  <form class="contact-form">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea rows="5" placeholder="Your Message" required></textarea>
+    <button>Send Message</button>
+  </form>
+</section>
+<footer>
+  © DreamSpace Reality – Luxury Homes & Properties. 
+</footer>
+</body>
+</html>
